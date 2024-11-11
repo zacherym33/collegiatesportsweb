@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Collegiate Sports Central, your hub for college sports news, scores, and highlights.">
+    <title>Collegiate Sports Central</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html" class="white-text">Home</a>
+        <a href="aboutus.html" class="white-text">About Us</a>
+        <a href="content.html" class="white-text">Content</a>
+        <a href="materialize.html" class="white-text">Materialize</a>
+        </div>
+    </nav>
+
+<header>
+    <h1>Welcome to Collegiate Sports Central!</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="content.html">Content</a>
+    </nav>
+</header>
+
+<div class="content">
+    <h2>About Our Site</h2>
+    <p>Collegiate Sports Central is your one-stop destination for all things related to college sports in the United States. Our goal is to provide fans with the most <strong>up-to-date news</strong>, scores, highlights, and stats from their favorite college teams. Whether you're following football, basketball, or any other collegiate sport, we have it covered!</p>
+    <p>Stay connected with the latest updates, breaking news, and expert analysis to keep you engaged throughout the season. Explore teams, conferences, and players with ease. <em>Join our community</em> of sports enthusiasts who share your passion for collegiate athletics!</p>
+
+    <h2>Latest Scores</h2>
+    <table>
+        <tr>
+            <th>Team A</th>
+            <th>Team B</th>
+            <th>Score</th>
+            <th>Date</th>
+        </tr>
+        <tr>
+            <td>University of Michigan</td>
+            <td>Ohio State University</td>
+            <td>21 - 17</td>
+            <td>October 1, 2024</td>
+        </tr>
+        <tr>
+            <td>University of Alabama</td>
+            <td>Clemson University</td>
+            <td>28 - 14</td>
+            <td>October 2, 2024</td>
+        </tr>
+        <tr>
+            <td>UCLA</td>
+            <td>University of Oregon</td>
+            <td>35 - 31</td>
+            <td>October 3, 2024</td>
+        </tr>
+    </table>
+
+    <aside>
+        <h2>Did You Know?</h2>
+        <p><strong>Collegiate sports</strong> not only promote athletic talent but also foster <em>teamwork</em> and leadership skills among students. Many athletes go on to successful careers both in sports and in other fields!</p>
+    </aside>
+
+    <h2>Upcoming Events</h2>
+    <ul>
+        <li><u>October 5:</u> Football - University of Florida vs. LSU</li>
+        <li><u>October 7:</u> Basketball - Duke University vs. Kentucky</li>
+        <li><u>October 10:</u> Soccer - Stanford University vs. UCLA</li>
+    </ul>
+
+    <h2>Featured Images</h2>
+    <div class="gallery">
+        <img src="images/footballgame.jpg" alt="College Football Game" onclick="alert('Football Game!')">
+        <img src="images/basketballgame.jpg" alt="College Basketball Match" onclick="alert('Basketball Game!')">
+        <img src="images/track.jpg" alt="Track and Field Event" onclick="alert('Track Event!')">
+    </div>
+</div>
+
+<footer>
+    <p>Location: Oxford, Ohio | Phone: (123) 456-7890 | Email: info@collegiatesportscentral.com</p>
+    <p>&copy; 2024 Collegiate Sports Central. All rights reserved.</p>
+</footer>
+
+<script>
+    // Simple interaction example
+    document.querySelectorAll('.gallery img').forEach(img => {
+        img.addEventListener('click', () => {
+            alert(`You clicked on ${img.alt}`);
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+

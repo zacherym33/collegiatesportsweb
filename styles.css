@@ -1,0 +1,135 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background for the entire page */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: #003DA5; /* Deep blue header */
+    color: #FFFFFF; /* White text color */
+    padding: 20px; /* Padding around header */
+    text-align: center; /* Centered text */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 3.5em; /* Larger font size for header */
+    letter-spacing: 2px; /* Spacing between letters */
+    text-transform: uppercase; /* Uppercase letters for emphasis */
+}
+
+/* Content Area Styling */
+.content {
+    max-width: 900px; /* Limit content width */
+    margin: 20px auto; /* Center content */
+    padding: 30px; /* Padding around content */
+    background: #FFFFFF; /* White background for content area */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for content area */
+}
+
+/* Section Headers */
+h2 {
+    color: #003DA5; /* Deep blue for section headers */
+    margin-bottom: 15px; /* Margin below header */
+    font-size: 2.5em; /* Size for section headers */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+/* Paragraph Styling */
+p {
+    line-height: 1.7; /* Improve readability */
+    margin-bottom: 20px; /* Spacing between paragraphs */
+    color: #333333; /* Dark gray for text */
+    font-size: 1.1em; /* Slightly larger font size */
+}
+
+/* Gallery Styles for Content Page */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Space between images */
+}
+
+.gallery img {
+    width: 100%; /* Full width */
+    border-radius: 8px; /* Rounded corners for images */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Shadow for images */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.gallery img:hover {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* Graphics Section for About Us Page */
+.graphics {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-around; /* Space out graphics */
+    margin: 30px 0; /* Margin around graphics section */
+    flex-wrap: wrap; /* Allow wrapping of images */
+}
+
+.graphics img {
+    width: 120px; /* Fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for images */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for images */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+}
+
+.graphics img:hover {
+    transform: scale(1.1); /* Slightly enlarge image on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+}
+
+/* Footer Styling */
+footer {
+    text-align: center; /* Centered text */
+    padding: 20px; /* Padding around footer */
+    background-color: #333333; /* Dark gray footer */
+    color: #FFFFFF; /* White text color */
+    position: relative; /* For positioning */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Shadow on top of footer */
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    h1 {
+        font-size: 2.5em; /* Smaller header size on mobile */
+    }
+
+    h2 {
+        font-size: 2em; /* Smaller section header size on mobile */
+    }
+
+    .content {
+        padding: 20px; /* Less padding on smaller screens */
+    }
+
+    .graphics {
+        flex-direction: column; /* Stack images vertically on small screens */
+        align-items: center; /* Center align images */
+    }
+
+    .graphics img {
+        width: 100px; /* Smaller width for mobile */
+    }
+}
+
+@media (max-width: 500px) {
+    h2 {
+        font-size: 1.5em; /* Even smaller section header size on very small screens */
+    }
+
+    p {
+        font-size: 1em; /* Smaller paragraph text */
+    }
+}
