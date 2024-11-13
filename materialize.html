@@ -6,7 +6,7 @@
     <meta name="description" content="Welcome to Collegiate Sports Central, your hub for college sports news, scores, and highlights.">
     <title>Collegiate Sports Central</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> <!-- Updated Materialize link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> <!-- Materialize CSS -->
     <style>
         .header-bg {
             background-color: #64b5f6; /* Light blue background */
@@ -117,25 +117,24 @@
     <a class="carousel-item" href="football.html"><img src="images/B3-FX291_BAKER_M_20200117102822.jpg" alt="Football Game"></a>
     <a class="carousel-item" href="basketball.html"><img src="images/cbb-1-363-graphic.jpg" alt="College Basketball"></a>
     <a class="carousel-item" href="baseball.html"><img src="images/a2fk6csrmv20dy2vdv98.jpeg" alt="Baseball Teams"></a>
-    <a class="carousel-item" href="volleyball.html"><img src="images/GettyImages-1635548672-e1693480521657.jpg" alt="Volleyball Match"></a>
 </div>
 
 <!-- Collapsible Menu -->
 <ul class="collapsible">
     <li>
-        <div class="collapsible-header"><i class="material-icons">sports_basketball</i>Basketball Highlights</div>
+        <div class="collapsible-header"><i class="material-icons"></i>Basketball Highlights</div>
         <div class="collapsible-body">
             <span>Catch up on the latest basketball highlights, including game-winning shots and standout plays from college tournaments.</span>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">sports_football</i>Football Schedule</div>
+        <div class="collapsible-header"><i class="material-icons"></i>Football Schedule</div>
         <div class="collapsible-body">
             <span>Stay updated on upcoming football games, with schedules, matchups, and key players to watch this season.</span>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">sports_soccer</i>Soccer Teams</div>
+        <div class="collapsible-header"><i class="material-icons"></i>Soccer Teams</div>
         <div class="collapsible-body">
             <span>Explore information on top collegiate soccer teams, their rankings, recent matches, and star players.</span>
         </div>
@@ -143,44 +142,31 @@
 </ul>
 
 <!-- JavaScript to Initialize Materialize Components -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Ensure jQuery is loaded first -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> <!-- Materialize JS -->
 <script>
-    // Initialize collapsible menu
     document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.collapsible');
-        var instances = M.Collapsible.init(elems);
+        // Initialize carousel
+        var carouselElems = document.querySelectorAll('.carousel');
+        M.Carousel.init(carouselElems, {
+            fullWidth: true, // Optional: makes the carousel cover the entire width
+            indicators: true // Optional: adds navigation indicators
+        });
+
+        // Initialize collapsible
+        var collapsibleElems = document.querySelectorAll('.collapsible');
+        M.Collapsible.init(collapsibleElems);
+
+        // Initialize modal (if needed for subscription)
+        var modalElems = document.querySelectorAll('.modal');
+        M.Modal.init(modalElems);
     });
-
-    // Initialize modal
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.modal');
-        var instances = M.Modal.init(elems);
-    });
-
-    // Function to display selected sport
-    function displaySport(sport) {
-        const responseDiv = document.getElementById("sport-response");
-        responseDiv.textContent = `You selected: ${sport}`;
-    }
-
-    // Function to handle email subscription form submission
-    function submitEmail(event) {
-        event.preventDefault();
-        const email = document.getElementById('email').value;
-        document.getElementById('email-response').innerText = `Thank you for subscribing! Updates will be sent to: ${email}`;
-        document.getElementById('email').value = ''; // Clear the input
-
-        // Display modal
-        const modalText = document.getElementById('modal-content-text');
-        modalText.innerText = `Thank you for subscribing! Updates will be sent to: ${email}`;
-        const modal = M.Modal.getInstance(document.getElementById('modal1'));
-        modal.open();
-    }
 </script>
 
 <!-- Radio Buttons Section -->
 <div id="radio-section" class="section container">
     <h2>Select Your Favorite College Sport</h2>
-    <form>
+    <form id="sport-form">
         <p>
             <label>
                 <input name="sport" type="radio" value="Basketball" onclick="displaySport(this.value)"/>
@@ -199,8 +185,32 @@
                 <span>Soccer</span>
             </label>
         </p>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn">Submit</button>
     </form>
     <div id="sport-response"></div>
 </div>
 
-<!-- Email Feedback Section -->
+<script>
+    // Function to handle the form submission
+    document.getElementById('sport-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevents the page from reloading
+
+        var selectedSport = document.querySelector('input[name="sport"]:checked'); // Get the selected radio button
+        if (selectedSport) {
+            document.getElementById('sport-response').textContent = 'You chose: ' + selectedSport.value;
+        } else {
+            document.getElementById('sport-response').textContent = 'Please select a sport!';
+        }
+    });
+
+    // Function to display the selected sport (if you want real-time feedback)
+    function displaySport(sport) {
+        const responseDiv = document.getElementById("sport-response");
+        responseDiv.textContent = `You selected: ${sport}`;
+    }
+</script>
+</body>
+</html>
+

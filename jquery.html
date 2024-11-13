@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to Collegiate Sports Central, your hub for college sports news, scores, and highlights.">
-    <title>Collegiate Sports Central</title>
+    <title>Collegiate Sports Central - jQuery Interactions</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
         /* Styles for your site */
         .header-bg { background-color: #64b5f6; }
         .section-bg { background-color: #ffebee; }
         .footer-bg { background-color: #0d47a1; }
         .circle { border-radius: 50%; width: 150px; height: 150px; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
@@ -23,54 +23,24 @@
         <a href="index.html" class="white-text">Home</a>
         <a href="aboutus.html" class="white-text">About Us</a>
         <a href="content.html" class="white-text">Content</a>
-        <a href="materialize.html" class="white-text">Materialize</a>
         <a href="jquery.html" class="white-text">JQuery</a>
     </div>
 </nav>
 
 <!-- Header Section -->
 <div class="section header-bg center-align">
-    <h1 class="white-text">About Collegiate Sports Central</h1>
-    <p class="white-text">Your Hub for Everything Collegiate Sports</p>
+    <h1 class="white-text">Have some fun!</h1>
+    <p class="white-text">Engage with your favorite sports!</p>
 </div>
 
-<!-- About Us Section -->
-<div id="about" class="section section-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m6">
-                <h2>Welcome to Collegiate Sports Central</h2>
-                <p>Your source for collegiate sports highlights and news!</p>
-            </div>
-            <div class="col s12 m6 video-container">
-                <iframe src="https://www.youtube.com/embed/AV016Wkpo2U" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
+<!-- Interactive Button Section -->
+<div id="button-section" class="section section-bg container">
+    <h2>Explore More with jQuery</h2>
+    <button id="toggle-info" class="btn">Show/Hide More Information</button>
+    <div id="extra-info" class="hidden">
+        <p>Here, you can find more details on upcoming sports events and news updates. Stay tuned for live coverage!</p>
     </div>
 </div>
-
-<!-- jQuery Image Carousel -->
-<div class="carousel">
-    <a class="carousel-item" href="#football"><img src="images/90.jpeg" alt="Football Game"></a>
-    <a class="carousel-item" href="#basketball"><img src="images/cbb-1-363-graphic.jpg" alt="College Basketball"></a>
-    <a class="carousel-item" href="#baseball"><img src="images/a2fk6csrmv20dy2vdv98.jpeg" alt="Baseball Teams"></a>
-</div>
-
-<!-- Collapsible Section -->
-<ul class="collapsible">
-    <li>
-        <div class="collapsible-header"><i class="material-icons">sports_basketball</i>Basketball Highlights</div>
-        <div class="collapsible-body"><span>Catch up on the latest basketball highlights, including game-winning shots.</span></div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">sports_football</i>Football Schedule</div>
-        <div class="collapsible-body"><span>Stay updated on upcoming football games, with schedules and key players.</span></div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">sports_soccer</i>Soccer Teams</div>
-        <div class="collapsible-body"><span>Explore information on top collegiate soccer teams and star players.</span></div>
-    </li>
-</ul>
 
 <!-- Sport Selection with jQuery Feedback -->
 <div id="radio-section" class="section container">
@@ -98,6 +68,15 @@
     <div id="sport-response"></div>
 </div>
 
+<!-- Team Logo Reveal Section -->
+<div id="logo-section" class="section container">
+    <h2>Reveal Your Team Logo!</h2>
+    <button id="fade-btn" class="btn">Show/Hide Logo</button>
+    <div id="logo-box" class="hidden">
+        <img src="images/purdue_boilermakers_logo_primary_19966041.png" alt="Team Logo" style="width: 150px; height: 150px;">
+    </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer-bg">
     <div class="container">
@@ -109,25 +88,23 @@
     </div>
 </footer>
 
-<!-- jQuery and Materialize Scripts -->
+<!-- jQuery Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
-    // Initialize Carousel
-    $(document).ready(function(){
-        $('.carousel').carousel();
-    });
-
-    // Initialize Collapsible
-    $(document).ready(function(){
-        $('.collapsible').collapsible();
+    // Toggle additional information section
+    $('#toggle-info').click(function() {
+        $('#extra-info').toggle();
     });
 
     // Function to display selected sport
     function displaySport(sport) {
         $('#sport-response').text(`You selected: ${sport}`);
     }
+
+    // Apply fade effect to the team logo
+    $('#fade-btn').click(function() {
+        $('#logo-box').fadeToggle();
+    });
 </script>
 </body>
 </html>
-
