@@ -13,6 +13,18 @@
         .footer-bg { background-color: #0d47a1; }
         .circle { border-radius: 50%; width: 150px; height: 150px; }
         .hidden { display: none; }
+
+        /* Center the carousel */
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .carousel {
+            width: 80%; /* Adjust based on your preference */
+        }
     </style>
 </head>
 <body>
@@ -23,14 +35,25 @@
         <a href="index.html" class="white-text">Home</a>
         <a href="aboutus.html" class="white-text">About Us</a>
         <a href="content.html" class="white-text">Content</a>
+        <a href="materialize.html" class="white-text">Materialize</a>
         <a href="jquery.html" class="white-text">JQuery</a>
+        <a href="bootstrap.html" class="white-text">Bootstrap</a>
     </div>
 </nav>
 
 <!-- Header Section -->
 <div class="section header-bg center-align">
-    <h1 class="white-text">Have some fun!</h1>
+    <h1 class="white-text">Interactive jQuery Page</h1>
     <p class="white-text">Engage with your favorite sports!</p>
+</div>
+
+<!-- Image Carousel Section -->
+<div class="carousel-container">
+    <div class="carousel">
+        <a class="carousel-item" href="#football"><img src="images/90.jpeg" alt="Football Game"></a>
+        <a class="carousel-item" href="#basketball"><img src="images/cbb-1-363-graphic.jpg" alt="College Basketball"></a>
+        <a class="carousel-item" href="#baseball"><img src="images/a2fk6csrmv20dy2vdv98.jpeg" alt="Baseball Teams"></a>
+    </div>
 </div>
 
 <!-- Interactive Button Section -->
@@ -68,15 +91,6 @@
     <div id="sport-response"></div>
 </div>
 
-<!-- Team Logo Reveal Section -->
-<div id="logo-section" class="section container">
-    <h2>Reveal Your Team Logo!</h2>
-    <button id="fade-btn" class="btn">Show/Hide Logo</button>
-    <div id="logo-box" class="hidden">
-        <img src="images/purdue_boilermakers_logo_primary_19966041.png" alt="Team Logo" style="width: 150px; height: 150px;">
-    </div>
-</div>
-
 <!-- Footer -->
 <footer class="footer-bg">
     <div class="container">
@@ -90,7 +104,13 @@
 
 <!-- jQuery Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
+    // Initialize Carousel
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    });
+
     // Toggle additional information section
     $('#toggle-info').click(function() {
         $('#extra-info').toggle();
@@ -100,11 +120,6 @@
     function displaySport(sport) {
         $('#sport-response').text(`You selected: ${sport}`);
     }
-
-    // Apply fade effect to the team logo
-    $('#fade-btn').click(function() {
-        $('#logo-box').fadeToggle();
-    });
 </script>
 </body>
 </html>
